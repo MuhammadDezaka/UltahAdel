@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRETDAYY NDORO RATUU<3</title>
+    <style>
+        body {
+            background-image: linear-gradient(rgb(235, 138, 196),beige);
+            background-size: cover; 
+            background-position: center; 
+            opacity: 0; 
+            transition: opacity 1s ease; 
+        }
+          
+        h2 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+            color:#fce8f2; 
+            box-shadow: 12px;
+        }
+        .image-content {
+            height: 50vh;
+            width: 90%;
+            padding: 10px 0;
+            gap: 20px;
+            display: flex;
+            justify-content: center;
+            border-radius: 50%;
+            flex-wrap: wrap; 
+        }
+        .image-wrapper {
+            margin: 10px;
+            border: 5px solid #ff69b4; 
+            border-radius: 15px; 
+            padding: 5px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+            transition: transform 0.3s; 
+        }
+        .image-wrapper:hover {
+            transform: scale(1.05); 
+        }
+        img {
+            width: 150px; 
+            height: 150px; 
+            border-radius: 10px; 
+        }
+        
+            p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            margin: 20px; 
+            line-height: 1.6; 
+            display: none;
+        }
+        
+        .fun-text {
+            position: absolute;
+            bottom: 10px; 
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.7); 
+            padding: 5px;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #ff69b4; 
+            text-align: center;
+            font-size: 12px; 
+        }
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: url('confetti.png') repeat;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        </style>
+        <script>
+             window.onload = function() {
+            document.body.style.opacity = 1;
+            startConfetti();
+            askForDate();
+        }
+
+        function askForDate() {
+            const date = prompt("Silakan masukkin tanggal ultah kamuu<3(format: DD/MM):");
+            if (date) {
+                alert("Maacii udah mengisi tanggalnyaa: " + date);
+                document.getElementById('birthdayContent').style.display = 'block'; 
+            }
+        }
+    
+        function showBirthdayMessage() {
+            alert("Happy Birthday sayanggg akuu <3");
+            alert("selamat bertambah umurr🥰");
+            alert("berkah umurnyaa sehatt selaluu Aamin🎀");
+            alert("jangan pernah capee jadi orang baik yaa ndoro ratuu muachh");
+            alert("happy selalu sayang aku lovee love lovee youu");
+            alert("you have a special place in my heart<3");
+            document.querySelector('p').style.display = 'block'; 
+        }
+    
+        function startConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            document.body.appendChild(confetti);
+        }
+        </script>
+</head>
+<body>
+    <h2>HAPPY BRETDAYY CAYANG AKUU<3</h2>
+    <div class="image-content">
+        <div class="image-wrapper">
+            <img src="adel2.jpg" alt="Gambar 1" onclick="showBirthdayMessage()" style="cursor: pointer;">
+            <div class="fun-text">ini waktu kita kegacoann uwuu😍</div>
+        </div>
+        <div class="image-wrapper">
+            <img src="uncu.jpg" alt="Gambar 2" onclick="showBirthdayMessage()" style="cursor: pointer;">
+            <div class="fun-text">ciapa ci lucu amayy <3 </div>
+        </div>
+        <div class="image-wrapper">
+            <img src="del.jpg" alt="Gambar 3" onclick="showBirthdayMessage()" style="cursor: pointer;">
+            <div class="fun-text">ini waktu mantaii eaa</div>
+        </div>
+        <div class="image-wrapper">
+            <img src="adel7.jpg" alt="Gambar 4" onclick="showBirthdayMessage()" style="cursor: pointer;">
+            <div class="fun-text">ini anak sesat nihh</div>
+        </div>
+        
+    </div>
+    
+    <p>OMAIIIGYUTTTTTT ADA YANGG HBD ULTAH BRETDAYY NICHHH CIAPAAA YAAAA ??<br>
+        UNCHHHH KAMUUU YAA YANG BACAA INII 
+        UNCH UNCH UNCHHH<br>
+        HAPPYY BIRTHDAY SAYANG AKUUUUUU CINTAKUUU MUAH MUAH MUAHH
+        SELAMAT BETAMBAH USIA HAPPY NINETEEN ANGJAYY 19 DEDEK NEE<br>
+        maacii udah hadirr dibumi ini yaa monyet eh cayangg cayangg 
+        makacii udah hadir di hidup aku juga 
+        jangan pernah cape jadi orang baikk yaa <br>
+        I LOVEEEEEEEEEEE LOVEE LOVEEE YOUUUUU MOREEE RAWRRRRR
+        AAAAAA CAYANGG AKUU <br>
+        HAPPY SELALU,SEHAT SELALU
+        makacii yaa selalu adaa buat akuu <br>selalu jadi bestiee akuu yaa untukk selamaaanyaaaa,jangan pernah bosan temenan sama aku yaaa,makasii selaluu perhatiann samaaa akuu ,selalu manja manja unchh ,intinyaa happy teruss, fokus sama kuliahnyaa,karirnyaa semoga apa yang selalu kamu doakan tercapai yaaa ,akuu selalu dukung kamyuuhh awww 😚😚
+        berkah umur sehat selaluu Aamin
+        enjoy your birthday sayangggg
+    </p>
+    <audio autoplay>
+        <source src="monokrom.mp3" type="audio/mp3">
+    </audio>
