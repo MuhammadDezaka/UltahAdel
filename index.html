@@ -4,152 +4,239 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BRETDAYY NDORO RATUU<3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background-image: linear-gradient(rgb(235, 138, 196),beige);
-            background-size: cover; 
-            background-position: center; 
-            opacity: 0; 
-            transition: opacity 1s ease; 
+            background-image: linear-gradient(rgb(235, 138, 196), beige);
+            background-size: cover;
+            background-position: center;
+            /* opacity: 0; */
+            transition: opacity 1s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
         }
-          
+
+        h2, .slideshow, .btn-surprise {
+            opacity: 0; /* Set opacity to 0 for everything except the button */
+        }
+
+        .btn-surprise {
+            opacity: 1; 
+            background-color: #ff69b4;
+            padding: 15px 30px;
+            font-size: 24px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: none;
+            position: absolute;
+            bottom: 30px;
+            z-index: 999;
+        }
+
+        .btn-surprise:hover {
+            background-color: #ff4b9d;
+        }
+
         h2 {
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             text-align: center;
-            color:#fce8f2; 
+            color: #fce8f2;
             box-shadow: 12px;
-        }
-        .image-content {
-            height: 50vh;
-            width: 90%;
-            padding: 10px 0;
-            gap: 20px;
-            display: flex;
-            justify-content: center;
-            border-radius: 50%;
-            flex-wrap: wrap; 
-        }
-        .image-wrapper {
-            margin: 10px;
-            border: 5px solid #ff69b4; 
-            border-radius: 15px; 
-            padding: 5px; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-            transition: transform 0.3s; 
-        }
-        .image-wrapper:hover {
-            transform: scale(1.05); 
-        }
-        img {
-            width: 150px; 
-            height: 150px; 
-            border-radius: 10px; 
-        }
-        
-            p {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color: rgb(0, 0, 0);
-            text-align: center;
-            margin: 20px; 
-            line-height: 1.6; 
-            display: none;
-        }
-        
-        .fun-text {
-            position: absolute;
-            bottom: 10px; 
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(255, 255, 255, 0.7); 
-            padding: 5px;
-            border-radius: 10px;
-            font-weight: bold;
-            color: #ff69b4; 
-            text-align: center;
-            font-size: 12px; 
-        }
-        .confetti {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background: url('confetti.png') repeat;
-            opacity: 0.5;
-            z-index: -1;
+            animation: glow 1s ease-in-out infinite alternate;
         }
 
-        </style>
-        <script>
-             window.onload = function() {
-            document.body.style.opacity = 1;
-            startConfetti();
-            askForDate();
-        }
-
-        function askForDate() {
-            const date = prompt("Silakan masukkin tanggal ultah kamuu<3(format: DD/MM):");
-            if (date) {
-                alert("Maacii udah mengisi tanggalnyaa: " + date);
-                document.getElementById('birthdayContent').style.display = 'block'; 
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+            }
+            to {
+                text-shadow: 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4;
             }
         }
-    
-        function showBirthdayMessage() {
-            alert("Happy Birthday sayanggg akuu <3");
-            alert("selamat bertambah umurr🥰");
-            alert("berkah umurnyaa sehatt selaluu Aamin🎀");
-            alert("jangan pernah capee jadi orang baik yaa ndoro ratuu muachh");
-            alert("happy selalu sayang aku lovee love lovee youu");
-            alert("you have a special place in my heart<3");
-            document.querySelector('p').style.display = 'block'; 
+
+        .confetti-piece {
+            position: absolute;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            background-color: hsl(0, 100%, 70%);
+            border-radius: 50%;
+            opacity: 0;
+            animation: confettiFall 3s linear infinite;
         }
-    
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .slideshow img {
+            display: none;
+        }
+
+        .slideshow img.visible {
+            display: block;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 80%;
+            text-align: center;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h2 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+
+        .modal button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .modal button:hover {
+            background-color: #ff4b9d;
+        }
+    </style>
+    <script>
+        let currentImageIndex = 0;
+        let musicStarted = false;
+        let confettiTriggered = false;
+
+        function startSlideshow() {
+            const images = document.querySelectorAll(".slideshow img");
+            images[currentImageIndex].classList.add("hidden");
+            images[currentImageIndex].classList.remove("visible");
+
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].classList.remove("hidden");
+            images[currentImageIndex].classList.add("visible");
+        }
+
         function startConfetti() {
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            document.body.appendChild(confetti);
+            // Start more confetti with every click
+            for (let i = 0; i < 200; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-piece');
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+                document.body.appendChild(confetti);
+
+                confetti.addEventListener('animationend', () => confetti.remove());
+            }
         }
-        </script>
+
+        function showBirthdayMessage() {
+            const modal = document.querySelector('.modal');
+            modal.classList.add('active');
+            const modalContent = document.querySelector('.modal-content');
+            modalContent.innerHTML = `
+                <h2>Happy Birthday sayanggg akuu <3</h2>
+                <p>Selamat bertambah umur 🥰</p>
+                <p>Berkah umurnya, sehat selalu! Aamin 🎀</p>
+                <p>Jangan pernah capek jadi orang baik yaa Ndoro Ratuu muachh</p>
+                <p>Happy selalu sayang, aku lovee love lovee youu</p>
+                <p>You have a special place in my heart <3</p>
+                <button onclick="closeModal()">Close</button>
+            `;
+        }
+
+        function closeModal() {
+            const modal = document.querySelector('.modal');
+            modal.classList.remove('active');
+        }
+
+        function startAll() {
+            if (!musicStarted) {
+                // Start background music only once
+                const audio = new Audio('monokrom.mp3');
+                audio.play();
+                audio.loop = true;
+                musicStarted = true;
+            }
+
+            // Fade in the page
+            document.body.style.opacity = 1;
+
+            // Make everything visible
+            document.querySelectorAll('h2, .slideshow, .btn-surprise').forEach(item => item.style.opacity = 1);
+
+            // Start everything after the button is clicked
+            startConfetti();  // Start the confetti effect
+            setInterval(startSlideshow, 3000);  // Start the slideshow
+            showBirthdayMessage();  // Show the birthday message
+        }
+
+        window.onload = function() {
+            document.querySelector('.btn-surprise').style.opacity = 1;  // Make button visible immediately
+            document.querySelector('.btn-surprise').addEventListener('click', startAll);
+        };
+    </script>
 </head>
-<body>
-    <h2>HAPPY BRETDAYY CAYANG AKUU<3</h2>
-    <div class="image-content">
-        <div class="image-wrapper">
-            <img src="adel2.jpg" alt="Gambar 1" onclick="showBirthdayMessage()" style="cursor: pointer;">
-            <div class="fun-text">ini waktu kita kegacoann uwuu😍</div>
-        </div>
-        <div class="image-wrapper">
-            <img src="uncu.jpg" alt="Gambar 2" onclick="showBirthdayMessage()" style="cursor: pointer;">
-            <div class="fun-text">ciapa ci lucu amayy <3 </div>
-        </div>
-        <div class="image-wrapper">
-            <img src="del.jpg" alt="Gambar 3" onclick="showBirthdayMessage()" style="cursor: pointer;">
-            <div class="fun-text">ini waktu mantaii eaa</div>
-        </div>
-        <div class="image-wrapper">
-            <img src="adel7.jpg" alt="Gambar 4" onclick="showBirthdayMessage()" style="cursor: pointer;">
-            <div class="fun-text">ini anak sesat nihh</div>
-        </div>
-        
+<body class="flex flex-col items-center justify-center min-h-screen">
+    <h2 class="text-4xl font-bold mb-6 animate-pulse">HAPPY BRETDAYY CAYANG AKUU<3</h2>
+
+    <div class="slideshow relative w-11/12 sm:w-3/5 lg:w-1/3 flex justify-center overflow-hidden border-8 border-pink-300 rounded-lg shadow-lg">
+        <img src="adel2.jpg" alt="Gambar 1" class="fade hidden w-full h-auto">
+        <img src="uncu.jpg" alt="Gambar 2" class="fade hidden w-full h-auto">
+        <img src="del.jpg" alt="Gambar 3" class="fade hidden w-full h-auto">
+        <img src="adel7.jpg" alt="Gambar 4" class="fade hidden w-full h-auto">
     </div>
-    
-    <p>OMAIIIGYUTTTTTT ADA YANGG HBD ULTAH BRETDAYY NICHHH CIAPAAA YAAAA ??<br>
-        UNCHHHH KAMUUU YAA YANG BACAA INII 
-        UNCH UNCH UNCHHH<br>
-        HAPPYY BIRTHDAY SAYANG AKUUUUUU CINTAKUUU MUAH MUAH MUAHH
-        SELAMAT BETAMBAH USIA HAPPY NINETEEN ANGJAYY 19 DEDEK NEE<br>
-        maacii udah hadirr dibumi ini yaa monyet eh cayangg cayangg 
-        makacii udah hadir di hidup aku juga 
-        jangan pernah cape jadi orang baikk yaa <br>
-        I LOVEEEEEEEEEEE LOVEE LOVEEE YOUUUUU MOREEE RAWRRRRR
-        AAAAAA CAYANGG AKUU <br>
-        HAPPY SELALU,SEHAT SELALU
-        makacii yaa selalu adaa buat akuu <br>selalu jadi bestiee akuu yaa untukk selamaaanyaaaa,jangan pernah bosan temenan sama aku yaaa,makasii selaluu perhatiann samaaa akuu ,selalu manja manja unchh ,intinyaa happy teruss, fokus sama kuliahnyaa,karirnyaa semoga apa yang selalu kamu doakan tercapai yaaa ,akuu selalu dukung kamyuuhh awww 😚😚
-        berkah umur sehat selaluu Aamin
-        enjoy your birthday sayangggg
-    </p>
-    <audio autoplay>
-        <source src="monokrom.mp3" type="audio/mp3">
-    </audio>
+
+    <!-- Click for Surprise Button -->
+    <button class="btn-surprise">Click for Surprise</button>
+
+    <!-- Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <h2>Loading...</h2>
+        </div>
+    </div>
+</body>
+</html>
